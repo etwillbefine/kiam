@@ -15,7 +15,6 @@ package sts
 
 import (
 	"context"
-	"fmt"
 	"time"
 
 	"github.com/patrickmn/go-cache"
@@ -54,7 +53,7 @@ func DefaultCache(
 	c := &credentialsCache{
 		arnResolver:     resolver,
 		expiring:        make(chan *RoleCredentials, 1),
-		sessionName:     fmt.Sprintf("kiam-%s", sessionName),
+		sessionName:     sessionName,
 		sessionDuration: sessionDuration,
 		cacheTTL:        sessionDuration - sessionRefresh,
 		gateway:         gateway,
